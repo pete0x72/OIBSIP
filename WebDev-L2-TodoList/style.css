@@ -14,7 +14,7 @@ body {
     color: var(--text);
     display: flex;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .container {
@@ -75,6 +75,15 @@ button {
 @media (max-width: 600px) {
     .lists-container {
         grid-template-columns: 1fr;
+    }
+    .input-group {
+        flex-direction: column;
+    }
+    .container {
+        padding: 1rem;
+    }
+    body {
+        padding: 0.5rem;
     }
 }
 

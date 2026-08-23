@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #b2d8d8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.calculator {
+  width: 340px;
+  background: #1c1c1e;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.display-area {
+  background: #2c2c2e;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.expression {
+  color: #8e8e93;
+  font-size: 1rem;
+  min-height: 1.2em;
+  text-align: right;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.display {
+  color: #ffffff;
+  font-size: 2.4rem;
+  font-weight: 300;
+  text-align: right;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.display.error {
+  color: #ff6b6b;
+  font-size: 1.6rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  grid-template-areas:
+    "ac del dot div"
+    "seven eight nine mul"
+    "four five six sub"
+    "one two three add"
+    "zero zero eq eq";
+  gap: 10px;
+}
+
+.btn {
+  padding: 18px 0;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 10px;
+  background: #3a3a3c;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.btn:hover {
+  background: #48484a;
+}
+
+.btn:active {
+  background: #5a5a5c;
+  transform: scale(0.97);
+}
+
+.btn.operator,
+.btn.equals {
+  background: #00A86B;
+  color: #ffffff;
+}
+
+.btn.operator:hover,
+.btn.equals:hover {
+  background: #008F5B;
+}
+
+.btn.operator.active {
+  background: #ffffff;
+  color: #ff9f0a;
+}
+
+.btn[data-action="ac"],
+.btn[data-action="del"] {
+  color: #ff6b6b;
+}
+
+.btn[data-action="ac"] { grid-area: ac; }
+.btn[data-action="del"] { grid-area: del; }
+.btn[data-action="decimal"] { grid-area: dot; }
+.btn[data-action="equals"] { grid-area: eq; }
+.btn.operator[data-value="/"] { grid-area: div; }
+.btn.operator[data-value="*"] { grid-area: mul; }
+.btn.operator[data-value="-"] { grid-area: sub; }
+.btn.operator[data-value="+"] { grid-area: add; }
+.btn[data-value="7"] { grid-area: seven; }
+.btn[data-value="8"] { grid-area: eight; }
+.btn[data-value="9"] { grid-area: nine; }
+.btn[data-value="4"] { grid-area: four; }
+.btn[data-value="5"] { grid-area: five; }
+.btn[data-value="6"] { grid-area: six; }
+.btn[data-value="1"] { grid-area: one; }
+.btn[data-value="2"] { grid-area: two; }
+.btn[data-value="3"] { grid-area: three; }
+.btn[data-value="0"] { grid-area: zero; }

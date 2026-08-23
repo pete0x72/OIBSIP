@@ -80,9 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (window.location.pathname.includes('dashboard.html')) {
-        const session = localStorage.getItem('session');
-        if (!session) {
+        const session = JSON.parse(localStorage.getItem('session') || '{}');
+        if (!session.username) {
             window.location.href = 'index.html';
+        } else {
+            const welcomeEl = document.getElementById('welcomeMessage');
+            if (welcomeEl) {
+                welcomeEl.textContent = `Welcome ${session.username}`;
+            }
         }
     }
 
